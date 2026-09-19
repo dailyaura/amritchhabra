@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "name": "Amrit Chhabra - Digital Marketing & Performance Portfolio",
+    "role": "Digital Marketing Professional & Founder of DailyAura.in",
+    "target_audience": "CMOs, Brand Founders, Growth Executives, High-growth Tech & Retail Leaders looking for proven performance marketing and SEO leadership",
+    "brand_pillars": ["STRATEGY", "EXECUTION", "PERFORMANCE", "EVIDENCE", "GROWTH"],
+    "file_extension_note": "Use .js and .jsx files exclusively across frontend components and pages."
+  },
+  "theme_and_colors": {
+    "archetype": "High-End Technology Consultancy & Performance Growth Portfolio",
+    "mode": "Dark Premium Default",
+    "palette": {
+      "background": "#030712",
+      "background_card": "#0B0F19",
+      "background_elevated": "#111827",
+      "primary_electric_blue": "#2563EB",
+      "accent_cyan_glow": "#38BDF8",
+      "accent_bright_blue": "#3B82F6",
+      "text_primary": "#F9FAFB",
+      "text_secondary": "#9CA3AF",
+      "text_muted": "#6B7280",
+      "border_subtle": "#1E293B",
+      "border_glow": "rgba(59, 130, 246, 0.3)",
+      "badge_bg": "rgba(37, 99, 235, 0.12)",
+      "gradient_hero": "radial-gradient(ellipse at 50% -20%, rgba(37, 99, 235, 0.25), rgba(3, 7, 18, 1))"
+    },
+    "rules": [
+      "Do NOT use pure #000000; use #030712 tinted with deep navy undertones.",
+      "Do NOT use generic random gradients everywhere; use precise glowing borders, radial spotlight highlights behind hero typography, and technical card backgrounds.",
+      "Do NOT use the long dash character anywhere in visible content."
+    ]
+  },
+  "typography": {
+    "font_pairing": "Syne / Cabinet Grotesk style Display Sans for Headings + Inter / DM Sans for crisp data & body text + JetBrains Mono for metrics and overlines",
+    "h1": "text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight md:leading-[1.1]",
+    "h2": "text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-white",
+    "h3": "text-xl sm:text-2xl font-semibold text-slate-100",
+    "h4": "text-lg sm:text-xl font-medium text-slate-200",
+    "body": "text-base text-slate-400 leading-relaxed font-normal",
+    "small": "text-sm text-slate-400 font-normal",
+    "overline": "text-xs uppercase tracking-[0.25em] text-blue-400 font-mono font-medium"
+  },
+  "layout_and_spacing": {
+    "generous_spacing": "Use py-20 lg:py-32 for main sections to give an award-worthy editorial feel.",
+    "container_max_width": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "bento_grid_protocol": "Mix card sizes: 12-column base grid with span 8, span 4, and tall vertical cards with 1px glass borders.",
+    "border_padding": "All cards with borders must have internal padding (p-6 or p-8) to prevent text collision."
+  },
+  "key_pages_and_navigation": {
+    "pages": [
+      {"path": "/", "name": "Home", "component": "src/pages/Home.js"},
+      {"path": "/about", "name": "About", "component": "src/pages/About.js"},
+      {"path": "/seo", "name": "SEO Strategy", "component": "src/pages/SeoService.js"},
+      {"path": "/social-media", "name": "Social Media", "component": "src/pages/SocialMediaService.js"},
+      {"path": "/meta-ads", "name": "Meta Ads", "component": "src/pages/MetaAdsService.js"},
+      {"path": "/email-marketing", "name": "Email Marketing", "component": "src/pages/EmailMarketingService.js"},
+      {"path": "/content-writing", "name": "Content Writing", "component": "src/pages/ContentWritingService.js"},
+      {"path": "/case-studies", "name": "Results & Case Studies", "component": "src/pages/CaseStudies.js"},
+      {"path": "/contact", "name": "Contact", "component": "src/pages/Contact.js"}
+    ],
+    "sticky_nav": "Fixed top bar with backdrop-blur-xl bg-slate-950/80 border-b border-slate-800/80, active status indicators, quick consultation CTA, and smooth desktop navigation links."
+  },
+  "signature_sections_and_features": {
+    "hero_masked_reveal": "Kinetic hero with animated line-by-line reveal using Framer Motion, floating electric blue spotlight, badge indicator, signature metrics bar, and direct consultation CTA.",
+    "evidence_cards_lightbox": "Interactive proof gallery featuring real Google Search Console performance screens, Meta Business Suite reach stats, Meta Ads Manager ROAS dashboards. NEVER in phone mockups or distorted frames. Features high-res zoom lightbox with full data breakdowns.",
+    "sectors_grid_21_plus": "Interactive filterable grid covering 21+ industry sectors (E-commerce, SaaS, Health & Wellness, FinTech, EdTech, D2C Brands, Real Estate, Fashion, Hospitality, B2B Tech, Auto, Lifestyle, FMCG, Legal, Gaming, Crypto Web3, Creator Economy, Pet Care, Executive Coaching, Home Decor, Fitness). Includes sector-specific strategy highlight preview on click.",
+    "founder_dailyaura_section": "Dedicated spotlight chapter highlighting Amrit Chhabra's venture DailyAura.in — origin story, traffic growth milestones, audience acquisition model, content engine, and brand vision.",
+    "manifesto_chapters": "Page sections organized as numbered chapters (01 // STRATEGY, 02 // EXECUTION, 03 // PERFORMANCE, 04 // EVIDENCE, 05 // SCALE) with vertical timeline connections.",
+    "slow_editorial_marquee": "Infinite smooth low-contrast drift of core capabilities and client impact metrics powered by smooth Framer Motion marquee.",
+    "process_timelines": "Step-by-step interactive flows (Research -> Audit -> Strategy -> Meta & Google Execution -> Continuous Optimization).",
+    "contextual_ctas": "Every page features a customized CTA matching its service domain (e.g. SEO Audit Request on SEO page, ROAS Consultation on Meta Ads page)."
+  },
+  "motion_and_effects": {
+    "libraries": ["framer-motion", "lucide-react", "recharts"],
+    "smooth_scroll": "Use Lenis smooth scrolling for weight and momentum.",
+    "reduced_motion": "Support prefers-reduced-motion CSS media query to simplify transitions for sensitive users.",
+    "hover_states": "Cards elevate with -translate-y-1, border changes to electric blue glow (border-blue-500/50), subtle box shadow (shadow-[0_0_25px_rgba(37,99,235,0.15)])."
+  },
+  "image_urls": {
+    "hero_founder_portrait": "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwZm91bmRlciUyMHBvcnRyYWl0JTIwZXhlY3V0aXZlJTIwY29uZmlkZW5jZXxlbnwwfHx8fDE3ODk4MjM4NTR8MA&ixlib=rb-4.1.0&q=85",
+    "analytics_dashboard_gsc": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBkaWdpdGFsJTIwbWFya2V0aW5nJTIwYW5hbHl0aWNzJTIwZ3Jvd3RoJTIwZGFzaGJvYXJkJTIwY2hhcnRzfGVufDB8fHx8MTc4OTgyMzg1NHww&ixlib=rb-4.1.0&q=85",
+    "meta_ads_performance": "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBkaWdpdGFsJTIwbWFya2V0aW5nJTIwYW5hbHl0aWNzJTIwZ3Jvd3RoJTIwZGFzaGJvYXJkJTIwY2hhcnRzfGVufDB8fHx8MTc4OTgyMzg1NHww&ixlib=rb-4.1.0&q=85",
+    "laptop_analytics_desk": "https://images.pexels.com/photos/577195/pexels-photo-577195.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "team_strategy_workspace": "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "executive_desk_working": "https://images.pexels.com/photos/19747906/pexels-photo-19747906.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "testing_and_accessibility": {
+    "data_testid_rule": "Every button, input, navigation link, card trigger, filter item, modal lightbox, and key text metric MUST include a meaningful data-testid attribute formatted in kebab-case.",
+    "examples": [
+      "data-testid=\"nav-link-seo\"",
+      "data-testid=\"hero-cta-schedule\"",
+      "data-testid=\"evidence-card-gsc\"",
+      "data-testid=\"lightbox-close-button\"",
+      "data-testid=\"sector-grid-item-ecommerce\"",
+      "data-testid=\"contact-submit-button\""
+    ]
+  },
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "You tend to converge toward generic outputs. Avoid AI slop: create a high-impact, award-worthy frontend with electric blue neon accents and dark slate surface contrast.",
+    "Do NOT use the long dash character anywhere in visible content.",
+    "Ensure all code uses standard Javascript files (.js and .jsx).",
+    "Every key interactive element must have a data-testid attribute.",
+    "Make sure forms have proper validation, visual error states, and success notifications via Sonner toast.",
+    "Never hide header links on desktop; provide explicit responsive design with a mobile drawer for small screens."
+  ]
+}
