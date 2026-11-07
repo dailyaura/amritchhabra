@@ -2,6 +2,30 @@
 const path = require("path");
 require("dotenv").config();
 
+// Polyfill Ajv._formats for Ajv v8 compatibility with schema-utils and fork-ts-checker
+try {
+  const AjvModule = require("ajv");
+  const Ajv = AjvModule.default || AjvModule;
+  if (Ajv && Ajv.prototype) {
+    Object.defineProperty(Ajv.prototype, "_formats", {
+      get() {
+        if (!this.__formats) {
+          this.__formats = {};
+          try {
+            const addFormats = require("ajv-formats");
+            addFormats(this);
+          } catch (e) {}
+        }
+        return this.formats || this.__formats;
+      },
+      set(val) {
+        this.__formats = val;
+      },
+      configurable: true,
+    });
+  }
+} catch (e) {}
+
 // Check if we're in development/preview mode (not production build)
 // Craco sets NODE_ENV=development for start, NODE_ENV=production for build
 const isDevServer = process.env.NODE_ENV !== "production";
