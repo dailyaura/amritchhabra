@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, useReducedMotion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
+  ArrowUp,
   BadgeCheck,
   Sparkles,
   TrendingUp,
@@ -18,6 +19,7 @@ import {
   PenLine,
   CheckCircle2,
   BarChart3,
+  Flame,
 } from "lucide-react";
 import { useSeo } from "../components/Seo";
 import { Reveal } from "../components/Reveal";
@@ -29,6 +31,7 @@ import { CTASection } from "../components/CTASection";
 import { GrowthSystem } from "../components/GrowthSystem";
 import { FounderSection } from "../components/FounderSection";
 import { EvidenceCard } from "../components/Evidence";
+import { GrowthSurgeWidget } from "../components/GrowthSurgeWidget";
 import {
   PAGE_SEO,
   SERVICES,
@@ -91,16 +94,16 @@ const Hero = () => {
       {/* Tighter, more compact top/bottom padding to remove huge empty gaps */}
       <div className="container-shell relative grid items-center gap-10 pt-24 pb-10 sm:pt-28 sm:pb-12 lg:grid-cols-12 lg:pt-32 lg:pb-14">
         <motion.div style={{ y: textY }} className="lg:col-span-7">
-          {/* Top Pill Badge */}
+          {/* Top Pill Badge with Electric Lightning Zap */}
           <motion.div
-            className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric-deep/15 px-3.5 py-1.5 text-xs font-mono uppercase tracking-[0.2em] text-electric-bright shadow-[0_0_20px_rgba(37,99,235,0.2)]"
+            className="inline-flex items-center gap-2 rounded-full border border-electric/40 bg-electric-deep/15 px-3.5 py-1.5 text-xs font-mono uppercase tracking-[0.2em] text-electric-bright shadow-[0_0_20px_rgba(37,99,235,0.25)]"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             data-testid="hero-badge"
           >
-            <Zap className="h-3.5 w-3.5 text-electric-bright animate-pulse" aria-hidden="true" />
-            Amrit Chhabra / Digital Marketing Professional
+            <Zap className="h-3.5 w-3.5 text-amber-400 animate-lightning" aria-hidden="true" />
+            <span>Amrit Chhabra / Digital Marketing Professional</span>
           </motion.div>
 
           {/* Main Heading with Animated Rotating Flip Outcome */}
@@ -145,7 +148,7 @@ const Hero = () => {
               data-testid="hero-cta-discuss-growth"
               className="group inline-flex items-center gap-2 rounded-full bg-electric-deep px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-electric hover:shadow-[0_0_36px_rgba(37,99,235,0.5)] active:scale-95"
             >
-              Let's Discuss Your Growth
+              <span>Let's Discuss Your Growth</span>
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </Link>
             <Link
@@ -157,12 +160,22 @@ const Hero = () => {
             </Link>
           </motion.div>
 
+          {/* Live Growth Surge Widget in Hero with Surging Arrow & Pulsing Equalizer */}
+          <motion.div
+            className="mt-6 max-w-xl"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.85 }}
+          >
+            <GrowthSurgeWidget />
+          </motion.div>
+
           {/* Metrics bar with Interactive Cards */}
           <motion.div
-            className="mt-8 grid max-w-xl grid-cols-3 gap-2.5 sm:gap-3.5 border-t border-slate-800/80 pt-6"
+            className="mt-5 grid max-w-xl grid-cols-3 gap-2.5 sm:gap-3.5 border-t border-slate-800/80 pt-5"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
+            transition={{ duration: 0.8, delay: 0.95 }}
             data-testid="hero-metrics-bar"
           >
             {HERO_METRICS.map((m) => {
@@ -183,7 +196,7 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Hero Photo Column with Floating Interactive Badges */}
+        {/* Hero Photo Column with Orbiting Planetary Ring & Surging Arrow Badges */}
         <motion.div style={{ y: photoY }} className="lg:col-span-5">
           <motion.div
             className="relative mx-auto max-w-sm lg:max-w-none"
@@ -191,14 +204,31 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Spinning ambient aura ring */}
+            {/* Spinning Ambient Aura Ring */}
             <div
               className="absolute -inset-4 rounded-[40px] bg-gradient-to-tr from-electric/30 via-cyan-400/20 to-emerald-400/20 blur-2xl animate-pulse"
               aria-hidden="true"
             />
 
-            {/* Photo frame */}
+            {/* Continuously Orbiting Satellite Ring around Photo */}
+            <div className="pointer-events-none absolute -inset-5 sm:-inset-7 rounded-[48px] border border-dashed border-cyan-400/25 animate-spin-slow">
+              {/* Satellite 1: SEO Tag Orbiting */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1 rounded-full bg-[#070d1d] border border-cyan-400 px-2.5 py-0.5 text-[10px] font-mono font-semibold text-cyan-300 shadow-[0_0_15px_rgba(56,189,248,0.5)]">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-ping" />
+                SEO ↗
+              </div>
+              {/* Satellite 2: ADS Tag Orbiting opposite side */}
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1 rounded-full bg-[#070d1d] border border-emerald-400 px-2.5 py-0.5 text-[10px] font-mono font-semibold text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.5)]">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
+                ADS ⚡
+              </div>
+            </div>
+
+            {/* Photo Frame */}
             <div className="relative overflow-hidden rounded-3xl border border-slate-700/80 shadow-[0_0_50px_rgba(37,99,235,0.22)] bg-[#070d1d]">
+              {/* Electric Beam across top of photo */}
+              <div className="absolute inset-x-0 top-0 h-[2px] animate-electric-beam z-10" />
+
               <img
                 src="/assets/amrit-chhabra.png"
                 alt="Amrit Chhabra, Digital Marketing Professional and Founder of DailyAura.in"
@@ -232,10 +262,18 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Floating Side Badge: 119k Search Clicks */}
-            <div className="hidden sm:flex glass absolute -right-3 bottom-14 items-center gap-2 rounded-xl border border-sky-500/30 bg-[#070d1d]/90 px-3 py-2 shadow-lg animate-float-subtle">
-              <TrendingUp className="h-4 w-4 text-sky-400" />
-              <span className="text-[11px] font-mono text-slate-200 font-medium">119k Clicks GSC</span>
+            {/* Floating Side Badge: Continuous Upward Surging Arrow */}
+            <div className="hidden sm:flex glass absolute -right-3 bottom-14 items-center gap-2.5 rounded-2xl border border-cyan-400/40 bg-[#070d1d]/90 px-3.5 py-2.5 shadow-[0_0_25px_rgba(56,189,248,0.25)] animate-float-subtle">
+              <div className="relative flex h-7 w-7 items-center justify-center rounded-lg bg-cyan-500/20 border border-cyan-400/40 overflow-hidden">
+                <ArrowUp className="h-4 w-4 text-cyan-300 animate-arrow-surge" />
+              </div>
+              <div>
+                <p className="text-xs font-mono font-bold text-white flex items-center gap-1">
+                  <span>119k Clicks</span>
+                  <span className="text-[10px] text-emerald-400 font-semibold">+340%</span>
+                </p>
+                <p className="text-[10px] text-cyan-300 font-mono">Organic Surge ↗</p>
+              </div>
             </div>
           </motion.div>
         </motion.div>
@@ -286,8 +324,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 03: Approach - Operating Loop with Connected Steps & Icons */}
-      <section className="border-y border-slate-800/70 bg-[#050a16]" data-testid="home-approach">
+      {/* Section 03: Approach - Operating Loop with Connected Electric Beam */}
+      <section className="border-y border-slate-800/70 bg-[#050a16] relative overflow-hidden" data-testid="home-approach">
+        {/* Electric Traveling Beam across Section Top */}
+        <div className="absolute inset-x-0 top-0 h-[2px] animate-electric-beam" aria-hidden="true" />
+
         <div className="container-shell py-10 sm:py-14 lg:py-16">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <SectionHeading
@@ -295,16 +336,18 @@ export default function Home() {
               title="Strategy, execution, performance, evidence, growth"
               lead="The operating loop behind every project. It keeps work accountable and makes progress visible."
             />
-            {/* Live Loop Status Pill */}
+            {/* Live Loop Status Pill with Upward Arrow */}
             <div className="hidden sm:inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric-deep/10 px-3.5 py-1.5 text-xs font-mono text-electric-bright">
               <Activity className="h-3.5 w-3.5 text-emerald-400 animate-pulse" />
               <span>Closed-Loop Architecture</span>
+              <ArrowUp className="h-3 w-3 text-cyan-400 animate-arrow-surge inline-block" />
             </div>
           </div>
 
           <div className="mt-8 sm:mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5 relative">
             {GROWTH_STEPS.map((step, i) => {
               const StepIcon = APPROACH_STEP_ICONS[i] || Zap;
+              const isGrowthStep = i === 4;
               return (
                 <Reveal key={step.num} delay={i * 0.08}>
                   <div
@@ -321,7 +364,12 @@ export default function Home() {
                       <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-electric/30 bg-electric-deep/15 text-electric-bright transition-all duration-300 group-hover:scale-110 group-hover:bg-electric-deep/30">
                         <StepIcon className="h-4.5 w-4.5" />
                       </span>
-                      <span className="font-mono text-xs font-bold text-electric-bright">{step.num}</span>
+                      <div className="flex items-center gap-1">
+                        <span className="font-mono text-xs font-bold text-electric-bright">{step.num}</span>
+                        {isGrowthStep && (
+                          <ArrowUp className="h-3.5 w-3.5 text-emerald-400 animate-arrow-surge" />
+                        )}
+                      </div>
                     </div>
 
                     <h3 className="mt-4 font-display text-base sm:text-lg font-bold text-slate-100 group-hover:text-white transition-colors">
@@ -336,13 +384,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 04: Search Evidence with Real-Time GSC Indicator */}
+      {/* Section 04: Search Evidence with Real-Time GSC Indicator & Surging Clicks */}
       <section className="container-shell py-10 sm:py-14 lg:py-16" data-testid="home-seo-preview">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-xs font-mono text-sky-400 mb-3">
               <Search className="h-3 w-3 animate-pulse" />
               <span>GSC Verified Organic Data • 119k+ Clicks</span>
+              <ArrowUp className="h-3 w-3 text-emerald-400 animate-arrow-surge" />
             </div>
             <SectionHeading
               chapter="04 // Search Evidence"
@@ -356,7 +405,7 @@ export default function Home() {
               data-testid="home-seo-preview-cta"
               className="group inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/40 px-5 py-2.5 text-xs sm:text-sm font-medium text-slate-200 transition-all hover:border-electric/60 hover:text-white"
             >
-              View Full Results
+              <span>View Full Results</span>
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </Link>
           </Reveal>
@@ -444,7 +493,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 06: Paid Evidence with High ROAS Efficiency Pills */}
+      {/* Section 06: Paid Evidence with Meta Surging Arrow Animation */}
       <section className="container-shell py-10 sm:py-14 lg:py-16" data-testid="home-paid-preview">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <SectionHeading
@@ -452,9 +501,13 @@ export default function Home() {
             title="Paid campaigns, reported snapshot by snapshot"
             lead="Meta Ads messaging campaigns shown as two independent performance snapshots. Each period stands on its own, exactly as reported."
           />
-          <div className="hidden sm:inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-mono text-emerald-400">
-            <Target className="h-3.5 w-3.5" />
-            <span>₹16.25 / Optimized Conversation</span>
+          {/* Animated Meta Surging Arrow Pill */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-3.5 py-1.5 text-xs font-mono text-emerald-300 shadow-[0_0_20px_rgba(16,185,129,0.25)]">
+            <div className="relative flex h-4 w-4 items-center justify-center overflow-hidden">
+              <ArrowUp className="h-3.5 w-3.5 text-emerald-400 animate-arrow-surge" />
+            </div>
+            <span>Meta Ads ROAS Surge • ₹16.25/Lead</span>
+            <Zap className="h-3 w-3 text-amber-400 animate-lightning" />
           </div>
         </div>
 
@@ -470,8 +523,9 @@ export default function Home() {
 
                 <div className="flex items-center justify-between">
                   <p className="eyebrow">{snap.title}</p>
-                  <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/30 font-semibold">
-                    Live Meta Ads Snapshot
+                  <span className="flex items-center gap-1 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/30 font-semibold">
+                    <span>Active Meta Ads</span>
+                    <ArrowUp className="h-2.5 w-2.5 animate-arrow-surge" />
                   </span>
                 </div>
 
@@ -488,7 +542,7 @@ export default function Home() {
                   data-testid={`home-paid-snapshot-cta-${i + 1}`}
                   className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-electric-bright hover:text-cyan-300 transition-colors"
                 >
-                  See the campaign evidence
+                  <span>See the campaign evidence</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                 </Link>
               </div>
@@ -527,7 +581,7 @@ export default function Home() {
                 data-testid="home-content-cta"
                 className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-electric-bright hover:text-cyan-300"
               >
-                Explore content writing
+                <span>Explore content writing</span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
               </Link>
             </div>
@@ -559,7 +613,7 @@ export default function Home() {
                 data-testid="home-email-cta"
                 className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-electric-bright hover:text-cyan-300"
               >
-                Explore email marketing
+                <span>Explore email marketing</span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
               </Link>
             </div>
@@ -600,7 +654,7 @@ export default function Home() {
                 data-testid="home-results-cta"
                 className="group inline-flex items-center gap-2 rounded-full bg-electric-deep px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-electric hover:shadow-[0_0_30px_rgba(37,99,235,0.45)] active:scale-95"
               >
-                View Full Results
+                <span>View Full Results</span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
               </Link>
             </Reveal>
@@ -632,7 +686,7 @@ export default function Home() {
                     </p>
                     <p className="mt-1.5 text-xs sm:text-sm text-slate-500">{card.note}</p>
                     <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-electric-bright group-hover:text-cyan-300">
-                      See the evidence
+                      <span>See the evidence</span>
                       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                     </span>
                   </Link>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Search, Share2, Target, PenLine, ArrowRight, Zap, RefreshCw } from "lucide-react";
+import { Search, Share2, Target, PenLine, ArrowRight, ArrowUp, Zap, RefreshCw, Sparkles } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const CHANNELS = [
@@ -43,10 +43,10 @@ const CHANNELS = [
 
 export const GrowthSystem = () => (
   <div className="grid items-center gap-8 lg:grid-cols-5">
-    {/* Left Column: Heading + Animated Interactive Growth Loop */}
+    {/* Left Column: Heading + Rotating Growth Turbine & Electric Flow */}
     <Reveal className="lg:col-span-2">
       <div className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric-deep/15 px-3 py-1 text-xs font-mono text-electric-bright mb-3">
-        <Zap className="h-3 w-3 animate-pulse" />
+        <Zap className="h-3.5 w-3.5 text-amber-400 animate-lightning" />
         Integrated Multi-Channel Engine
       </div>
       <h3 className="font-display text-2xl sm:text-3xl font-bold text-white leading-tight">
@@ -58,21 +58,31 @@ export const GrowthSystem = () => (
         in isolation.
       </p>
 
-      {/* Animated Growth Loop Flow Indicator */}
-      <div className="mt-6 rounded-2xl border border-slate-800/80 bg-[#070d1d]/80 p-4 shadow-inner">
+      {/* Rotating 360° Turbine & Electric Loop Card */}
+      <div className="relative mt-6 overflow-hidden rounded-2xl border border-slate-800/80 bg-[#070d1d]/90 p-4 shadow-inner">
+        {/* Electric Traveling Beam across top */}
+        <div className="absolute inset-x-0 top-0 h-[2px] animate-electric-beam" aria-hidden="true" />
+
         <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-3">
-          <span className="flex items-center gap-1.5 text-electric-bright font-semibold">
-            <RefreshCw className="h-3.5 w-3.5 animate-spin-slow" />
-            Continuous Feedback Loop
+          <span className="flex items-center gap-2 text-electric-bright font-semibold">
+            {/* Continuously Rotating 360° Compass Wheel */}
+            <RefreshCw className="h-4 w-4 text-cyan-400 animate-spin-slow" />
+            <span>Continuous Feedback Loop</span>
           </span>
-          <span className="text-[10px] text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/30">
-            Compounding ROI
+          {/* Upward Surging Arrow Pill */}
+          <span className="inline-flex items-center gap-1 text-[11px] text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            </span>
+            <span>COMPOUNDING ROI</span>
+            <ArrowUp className="h-3 w-3 animate-arrow-surge inline-block" />
           </span>
         </div>
 
         {/* Visual Step-by-Step Flow Bar */}
-        <div className="flex items-center justify-between text-[11px] font-mono font-medium text-slate-300">
-          <span className="flex items-center gap-1">
+        <div className="flex items-center justify-between text-[11px] font-mono font-medium text-slate-300 pt-1">
+          <span className="flex items-center gap-1 text-sky-400">
             <span className="h-1.5 w-1.5 rounded-full bg-sky-400 animate-ping" />
             SEO
           </span>
@@ -99,7 +109,7 @@ export const GrowthSystem = () => (
             >
               {/* Animated Top Accent Shimmer */}
               <div
-                className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-electric-bright to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                 aria-hidden="true"
               />
 

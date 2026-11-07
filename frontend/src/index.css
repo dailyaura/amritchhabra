@@ -180,6 +180,106 @@
     animation: pulse-subtle-glow 3s ease-in-out infinite;
 }
 
+/* Arrow Surge Up Animation - Arrow rising continuously upwards */
+@keyframes arrow-surge-up {
+    0% {
+        transform: translateY(12px) scale(0.85);
+        opacity: 0;
+    }
+    25% {
+        transform: translateY(2px) scale(1.1);
+        opacity: 1;
+    }
+    70% {
+        transform: translateY(-8px) scale(1);
+        opacity: 0.95;
+    }
+    100% {
+        transform: translateY(-18px) scale(0.85);
+        opacity: 0;
+    }
+}
+
+.animate-arrow-surge {
+    animation: arrow-surge-up 2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.animate-arrow-surge-delayed {
+    animation: arrow-surge-up 2s cubic-bezier(0.22, 1, 0.36, 1) infinite 1s;
+}
+
+/* Electric Lightning Pulse Animation */
+@keyframes lightning-flicker {
+    0%, 100% {
+        opacity: 0.8;
+        filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6)) drop-shadow(0 0 16px rgba(37, 99, 235, 0.3));
+    }
+    12% {
+        opacity: 1;
+        filter: drop-shadow(0 0 18px rgba(56, 189, 248, 0.95)) drop-shadow(0 0 28px rgba(250, 204, 21, 0.8));
+    }
+    16% {
+        opacity: 0.6;
+    }
+    20% {
+        opacity: 1;
+        filter: drop-shadow(0 0 24px rgba(250, 204, 21, 0.95)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.9));
+    }
+    55% {
+        opacity: 0.85;
+    }
+    70% {
+        opacity: 1;
+        filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.8));
+    }
+}
+
+.animate-lightning {
+    animation: lightning-flicker 3.2s ease-in-out infinite;
+}
+
+/* Electric Traveling Beam */
+@keyframes electric-beam-flow {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.animate-electric-beam {
+    background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.3) 25%, rgba(250, 204, 21, 0.8) 50%, rgba(56, 189, 248, 0.3) 75%, transparent 100%);
+    background-size: 200% 100%;
+    animation: electric-beam-flow 3.5s linear infinite;
+}
+
+/* Live Equalizer/Bar Chart Growth Pulse */
+@keyframes bar-surge-1 {
+    0%, 100% { height: 28%; }
+    50% { height: 80%; }
+}
+
+@keyframes bar-surge-2 {
+    0%, 100% { height: 50%; }
+    50% { height: 95%; }
+}
+
+@keyframes bar-surge-3 {
+    0%, 100% { height: 38%; }
+    50% { height: 88%; }
+}
+
+@keyframes bar-surge-4 {
+    0%, 100% { height: 65%; }
+    50% { height: 100%; }
+}
+
+.animate-bar-1 { animation: bar-surge-1 1.8s ease-in-out infinite; }
+.animate-bar-2 { animation: bar-surge-2 1.8s ease-in-out infinite 0.3s; }
+.animate-bar-3 { animation: bar-surge-3 1.8s ease-in-out infinite 0.6s; }
+.animate-bar-4 { animation: bar-surge-4 1.8s ease-in-out infinite 0.9s; }
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
