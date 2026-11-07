@@ -85,6 +85,8 @@
     "@emergentbase/visual-edits": "https://assets.emergent.sh/npm/emergentbase-visual-edits-1.0.13.tgz",
     "@eslint/js": "9.23.0",
     "@types/lodash": "4.17.24",
+    "ajv": "^6.12.6",
+    "ajv-keywords": "^3.5.2",
     "autoprefixer": "10.4.20",
     "dotenv": "16.4.5",
     "eslint": "9.23.0",
@@ -96,7 +98,15 @@
     "postcss": "8.5.10",
     "tailwindcss": "3.4.17"
   },
+  "overrides": {
+    "ajv": "^6.12.6",
+    "ajv-keywords": "^3.5.2",
+    "terser-webpack-plugin": "^5.3.10"
+  },
   "resolutions": {
+    "ajv": "^6.12.6",
+    "ajv-keywords": "^3.5.2",
+    "terser-webpack-plugin": "^5.3.10",
     "react-router": "7.15.1",
     "node-forge": "1.4.0",
     "fast-uri": "3.1.2",

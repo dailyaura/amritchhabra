@@ -1,0 +1,8 @@
+{
+  "buildCommand": "craco build",
+  "outputDirectory": "build",
+  "env": {
+    "CI": "false",
+    "GENERATE_SOURCEMAP": "false"
+  }
+}

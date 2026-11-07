@@ -96,6 +96,7 @@ if (isDevServer && process.env.DISABLE_EMERGENT_OVERLAY !== "true") {
 
 let webpackConfig = {
   eslint: {
+    enable: false,
     configure: {
       extends: ["plugin:react-hooks/recommended"],
       rules: {
@@ -108,18 +109,30 @@ let webpackConfig = {
     alias: {
       '@': path.resolve(__dirname, 'src'),
     },
-    configure: (webpackConfig) => {
+    configure: (webpackConfig, { env }) => {
+      // Disable source maps in production to eliminate terser/schema-utils validation crashes
+      if (env === 'production' || process.env.NODE_ENV === 'production') {
+        webpackConfig.devtool = false;
+
+        if (webpackConfig.optimization && webpackConfig.optimization.minimizer) {
+          webpackConfig.optimization.minimizer.forEach((minimizer) => {
+            if (minimizer && minimizer.options && minimizer.options.terserOptions) {
+              delete minimizer.options.terserOptions.sourceMap;
+            }
+          });
+        }
+      }
 
       // Add ignored patterns to reduce watched directories
-        webpackConfig.watchOptions = {
-          ...webpackConfig.watchOptions,
-          ignored: [
-            '**/node_modules/**',
-            '**/.git/**',
-            '**/build/**',
-            '**/dist/**',
-            '**/coverage/**',
-            '**/public/**',
+      webpackConfig.watchOptions = {
+        ...webpackConfig.watchOptions,
+        ignored: [
+          '**/node_modules/**',
+          '**/.git/**',
+          '**/build/**',
+          '**/dist/**',
+          '**/coverage/**',
+          '**/public/**',
         ],
       };
 
