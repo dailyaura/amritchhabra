@@ -1,6 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="112" fill="#030712" stroke="#2563EB" stroke-width="8"/>
-  <path d="M123 410 L256 102 L389 410" fill="none" stroke="#3B82F6" stroke-width="52" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M169 328 L230 287 L282 313 L348 246" fill="none" stroke="#38BDF8" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M352 240 L306 254 L340 288 Z" fill="#38BDF8"/>
+  <defs>
+    <linearGradient id="favBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="favGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <radialGradient id="favGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#050A16" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Obsidian Base with Rounded Superellipse -->
+  <rect width="512" height="512" rx="128" fill="#050A16"/>
+  
+  <!-- Glowing Border Ring -->
+  <rect x="12" y="12" width="488" height="488" rx="118" fill="none" stroke="url(#favBorder)" stroke-width="24"/>
+  
+  <!-- Radial Center Glow -->
+  <circle cx="256" cy="256" r="200" fill="url(#favGlow)"/>
+  
+  <!-- Monogram Peak (A) -->
+  <path d="M120 390 L256 120 L392 390" fill="none" stroke="url(#favGrad)" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Growth Dynamic Arrow -->
+  <path d="M175 295 L256 235 L330 265 L405 175" fill="none" stroke="#38BDF8" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M365 175 H405 V215" fill="none" stroke="#38BDF8" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Radiant Core Point -->
+  <circle cx="256" cy="235" r="16" fill="#FFFFFF"/>
+  
+  <!-- Active Live Beacon Dot -->
+  <circle cx="430" cy="430" r="32" fill="#10B981"/>
+  <circle cx="430" cy="430" r="14" fill="#FFFFFF"/>
 </svg>

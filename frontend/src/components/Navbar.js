@@ -14,6 +14,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { CONTACT } from "../data/site";
+import { AnimatedLogo } from "./AnimatedLogo";
 
 const SERVICES_LIST = [
   {
@@ -117,29 +118,8 @@ export const Navbar = () => {
       }`}
     >
       <nav className="container-shell flex h-16 sm:h-[72px] items-center justify-between" aria-label="Main Navigation">
-        {/* Brand Logo */}
-        <Link
-          to="/"
-          className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none"
-          data-testid="nav-logo"
-          aria-label="Amrit Chhabra Portfolio"
-        >
-          <div className="relative flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-electric to-electric-deep text-white font-display font-bold text-base shadow-[0_0_20px_rgba(37,99,235,0.4)] group-hover:scale-105 transition-transform duration-300">
-            AC
-            <span
-              className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-emerald-400 border-2 border-[#050a16]"
-              title="Online"
-            />
-          </div>
-          <span className="leading-tight">
-            <span className="block font-display text-sm sm:text-base font-bold text-white tracking-wide group-hover:text-electric-bright transition-colors">
-              AMRIT CHHABRA
-            </span>
-            <span className="block text-[10px] uppercase tracking-[0.2em] text-electric-bright font-mono font-medium">
-              Digital Marketing
-            </span>
-          </span>
-        </Link>
+        {/* Animated Brand Logo */}
+        <AnimatedLogo />
 
         {/* Desktop Navigation Links */}
         <ul className="hidden md:flex items-center gap-1 lg:gap-2">
