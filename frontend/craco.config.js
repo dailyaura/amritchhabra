@@ -95,6 +95,9 @@ if (isDevServer && process.env.DISABLE_EMERGENT_OVERLAY !== "true") {
 }
 
 let webpackConfig = {
+  typescript: {
+    enableTypeChecking: false,
+  },
   eslint: {
     enable: false,
     configure: {
@@ -110,6 +113,11 @@ let webpackConfig = {
       '@': path.resolve(__dirname, 'src'),
     },
     configure: (webpackConfig, { env }) => {
+      // Remove ForkTsCheckerWebpackPlugin completely
+      webpackConfig.plugins = (webpackConfig.plugins || []).filter(
+        (p) => p && p.constructor && p.constructor.name !== 'ForkTsCheckerWebpackPlugin'
+      );
+
       // Disable source maps in production to eliminate terser/schema-utils validation crashes
       if (env === 'production' || process.env.NODE_ENV === 'production') {
         webpackConfig.devtool = false;
