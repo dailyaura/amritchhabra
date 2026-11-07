@@ -10,41 +10,49 @@ export const Footer = () => {
   return (
     <footer className="border-t border-slate-800/80 bg-[#040814] text-slate-300" data-testid="footer">
       {/* Pre-footer Call to Action Banner */}
-      <div className="border-b border-slate-850 bg-gradient-to-b from-[#060c1d] to-[#040814] py-12 sm:py-16">
+      <div className="border-b border-slate-850 bg-gradient-to-b from-[#060c1d] to-[#040814] py-10 sm:py-14">
         <div className="container-shell">
-          <div className="relative overflow-hidden rounded-3xl border border-electric/30 bg-[#0a1022] p-8 sm:p-12 lg:p-14 shadow-2xl">
-            <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-electric-deep/20 blur-3xl" aria-hidden="true" />
+          <div className="relative overflow-hidden rounded-3xl border border-electric/40 bg-[#080e20] p-7 sm:p-10 lg:p-12 shadow-[0_0_50px_rgba(37,99,235,0.2)] transition-all duration-300 hover:border-electric/70">
+            {/* Ambient Animated Glowing Orbs */}
+            <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-electric/25 blur-3xl animate-pulse" aria-hidden="true" />
+            <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-cyan-500/15 blur-3xl" aria-hidden="true" />
+            
             <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div className="max-w-2xl">
-                <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-semibold text-emerald-400">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                {/* Live Radar Pulsing Badge */}
+                <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-3.5 py-1.5 text-xs font-mono font-semibold text-emerald-300 shadow-[0_0_20px_rgba(16,185,129,0.25)]">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                  </span>
                   Available for New Projects
                 </span>
+
                 <h2 className="mt-4 font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white leading-tight">
                   Ready to grow your search visibility and paid revenue?
                 </h2>
-                <p className="mt-3 text-sm sm:text-base text-slate-400 leading-relaxed">
+                <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
                   Let's discuss how data-backed SEO, Meta Ads, and content strategies can create sustainable growth for your business.
                 </p>
               </div>
 
-              {/* Fast Action Buttons */}
+              {/* Fast Action Buttons with Hover Glow */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
                 <a
                   href={CONTACT.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-3.5 text-sm font-bold text-white transition-all hover:bg-emerald-500 hover:shadow-[0_0_24px_rgba(16,185,129,0.4)] active:scale-98"
+                  className="group inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:bg-emerald-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] active:scale-98"
                 >
-                  <MessageCircle className="h-4 w-4" />
-                  Chat on WhatsApp
+                  <MessageCircle className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+                  <span>Chat on WhatsApp</span>
                 </a>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-electric/40 bg-electric-deep/20 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-electric-deep hover:shadow-[0_0_24px_rgba(37,99,235,0.4)] active:scale-98"
+                  className="group inline-flex items-center justify-center gap-2 rounded-xl border border-electric/40 bg-electric-deep/20 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-electric-deep hover:shadow-[0_0_30px_rgba(37,99,235,0.45)] active:scale-98"
                 >
-                  <Sparkles className="h-4 w-4" />
-                  Send an Enquiry
+                  <Sparkles className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12 text-cyan-300" />
+                  <span>Send an Enquiry</span>
                 </Link>
               </div>
             </div>

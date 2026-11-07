@@ -9,6 +9,15 @@ import {
   Layers,
   Award,
   Zap,
+  Target,
+  Activity,
+  ShieldCheck,
+  Search,
+  Share2,
+  Mail,
+  PenLine,
+  CheckCircle2,
+  BarChart3,
 } from "lucide-react";
 import { useSeo } from "../components/Seo";
 import { Reveal } from "../components/Reveal";
@@ -56,6 +65,8 @@ const HERO_METRICS = [
   { value: "1.0M", label: "Content views in single period", icon: Sparkles },
 ];
 
+const APPROACH_STEP_ICONS = [Target, Zap, Activity, ShieldCheck, Sparkles];
+
 const Hero = () => {
   const ref = useRef(null);
   const reduce = useReducedMotion();
@@ -76,7 +87,7 @@ const Hero = () => {
     <section ref={ref} className="relative overflow-hidden" data-testid="hero-section">
       <div className="absolute inset-0 spotlight" aria-hidden="true" />
       <div className="absolute inset-0 bg-grid opacity-60" aria-hidden="true" />
-      
+
       {/* Tighter, more compact top/bottom padding to remove huge empty gaps */}
       <div className="container-shell relative grid items-center gap-10 pt-24 pb-10 sm:pt-28 sm:pb-12 lg:grid-cols-12 lg:pt-32 lg:pb-14">
         <motion.div style={{ y: textY }} className="lg:col-span-7">
@@ -275,42 +286,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 03: Approach - Operating Loop */}
+      {/* Section 03: Approach - Operating Loop with Connected Steps & Icons */}
       <section className="border-y border-slate-800/70 bg-[#050a16]" data-testid="home-approach">
         <div className="container-shell py-10 sm:py-14 lg:py-16">
-          <SectionHeading
-            chapter="03 // Approach"
-            title="Strategy, execution, performance, evidence, growth"
-            lead="The operating loop behind every project. It keeps work accountable and makes progress visible."
-          />
-          <div className="mt-8 sm:mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {GROWTH_STEPS.map((step, i) => (
-              <Reveal key={step.num} delay={i * 0.08}>
-                <div
-                  className="card-premium card-hover h-full p-5 sm:p-6 transition-all duration-300 hover:border-electric/50"
-                  data-testid={`approach-step-${step.num}`}
-                >
-                  <div className="flex items-center justify-between">
-                    <p className="font-mono text-xs font-bold text-electric-bright">{step.num}</p>
-                    <span className="h-1.5 w-1.5 rounded-full bg-electric-bright/60" />
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <SectionHeading
+              chapter="03 // Approach"
+              title="Strategy, execution, performance, evidence, growth"
+              lead="The operating loop behind every project. It keeps work accountable and makes progress visible."
+            />
+            {/* Live Loop Status Pill */}
+            <div className="hidden sm:inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric-deep/10 px-3.5 py-1.5 text-xs font-mono text-electric-bright">
+              <Activity className="h-3.5 w-3.5 text-emerald-400 animate-pulse" />
+              <span>Closed-Loop Architecture</span>
+            </div>
+          </div>
+
+          <div className="mt-8 sm:mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5 relative">
+            {GROWTH_STEPS.map((step, i) => {
+              const StepIcon = APPROACH_STEP_ICONS[i] || Zap;
+              return (
+                <Reveal key={step.num} delay={i * 0.08}>
+                  <div
+                    className="card-premium card-hover group relative h-full p-5 sm:p-6 transition-all duration-300 hover:border-electric/70 hover:shadow-[0_0_25px_rgba(37,99,235,0.2)] overflow-hidden"
+                    data-testid={`approach-step-${step.num}`}
+                  >
+                    {/* Top Shimmer Line on Hover */}
+                    <div
+                      className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      aria-hidden="true"
+                    />
+
+                    <div className="flex items-center justify-between">
+                      <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-electric/30 bg-electric-deep/15 text-electric-bright transition-all duration-300 group-hover:scale-110 group-hover:bg-electric-deep/30">
+                        <StepIcon className="h-4.5 w-4.5" />
+                      </span>
+                      <span className="font-mono text-xs font-bold text-electric-bright">{step.num}</span>
+                    </div>
+
+                    <h3 className="mt-4 font-display text-base sm:text-lg font-bold text-slate-100 group-hover:text-white transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">{step.text}</p>
                   </div>
-                  <h3 className="mt-3 font-display text-base sm:text-lg font-semibold text-slate-100">{step.title}</h3>
-                  <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">{step.text}</p>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Section 04: Search Evidence */}
+      {/* Section 04: Search Evidence with Real-Time GSC Indicator */}
       <section className="container-shell py-10 sm:py-14 lg:py-16" data-testid="home-seo-preview">
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeading
-            chapter="04 // Search Evidence"
-            title="A closer look at Search Performance"
-            lead="Real Google Search Console reports across different properties and periods. Shown exactly as reported, with client identities protected."
-          />
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-xs font-mono text-sky-400 mb-3">
+              <Search className="h-3 w-3 animate-pulse" />
+              <span>GSC Verified Organic Data • 119k+ Clicks</span>
+            </div>
+            <SectionHeading
+              chapter="04 // Search Evidence"
+              title="A closer look at Search Performance"
+              lead="Real Google Search Console reports across different properties and periods. Shown exactly as reported, with client identities protected."
+            />
+          </div>
           <Reveal>
             <Link
               to="/results"
@@ -341,11 +380,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 05: Social Evidence */}
+      {/* Section 05: Social Evidence with Live Metrics & Icons */}
       <section className="border-y border-slate-800/70 bg-[#050a16]" data-testid="home-social-preview">
         <div className="container-shell py-10 sm:py-14 lg:py-16">
           <div className="grid items-center gap-8 lg:grid-cols-2">
             <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-pink-500/30 bg-pink-500/10 px-3 py-1 text-xs font-mono text-pink-400 mb-3">
+                <Sparkles className="h-3 w-3 animate-spin-slow" />
+                <span>Meta Business Suite • 1,000,000+ Reach Engine</span>
+              </div>
               <SectionHeading
                 chapter="05 // Social Evidence"
                 title="Social content that earns real reach"
@@ -353,17 +396,30 @@ export default function Home() {
               />
               <div className="mt-7 grid grid-cols-3 gap-3">
                 {[
-                  { value: "1.0M", label: "Views in one period" },
-                  { value: "540.2K", label: "Reach, same period" },
-                  { value: "190.9%", label: "Reach lift, quarterly view" },
-                ].map((m, i) => (
-                  <Reveal key={m.label} delay={i * 0.07}>
-                    <div className="card-premium p-4 sm:p-5 transition-all duration-300 hover:border-electric/50" data-testid={`home-social-metric-${i + 1}`}>
-                      <p className="font-mono text-lg sm:text-2xl font-bold text-white">{m.value}</p>
-                      <p className="mt-1 text-[11px] leading-snug text-slate-400">{m.label}</p>
-                    </div>
-                  </Reveal>
-                ))}
+                  { value: "1.0M", label: "Views in one period", icon: Sparkles, color: "text-pink-400" },
+                  { value: "540.2K", label: "Reach, same period", icon: Share2, color: "text-sky-400" },
+                  { value: "190.9%", label: "Reach lift, quarterly view", icon: TrendingUp, color: "text-emerald-400", badge: "+190.9% Lift" },
+                ].map((m, i) => {
+                  const MIcon = m.icon;
+                  return (
+                    <Reveal key={m.label} delay={i * 0.07}>
+                      <div className="card-premium card-hover group p-4 sm:p-5 transition-all duration-300 hover:border-electric/60" data-testid={`home-social-metric-${i + 1}`}>
+                        <div className="flex items-center justify-between">
+                          <MIcon className={`h-4 w-4 ${m.color}`} />
+                          {m.badge && (
+                            <span className="text-[9px] font-mono font-bold text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/30">
+                              LIFT
+                            </span>
+                          )}
+                        </div>
+                        <p className="mt-2 font-mono text-lg sm:text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                          {m.value}
+                        </p>
+                        <p className="mt-1 text-[11px] leading-snug text-slate-400">{m.label}</p>
+                      </div>
+                    </Reveal>
+                  );
+                })}
               </div>
               <Reveal delay={0.2}>
                 <Link
@@ -388,30 +444,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 06: Paid Evidence */}
+      {/* Section 06: Paid Evidence with High ROAS Efficiency Pills */}
       <section className="container-shell py-10 sm:py-14 lg:py-16" data-testid="home-paid-preview">
-        <SectionHeading
-          chapter="06 // Paid Evidence"
-          title="Paid campaigns, reported snapshot by snapshot"
-          lead="Meta Ads messaging campaigns shown as two independent performance snapshots. Each period stands on its own, exactly as reported."
-        />
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <SectionHeading
+            chapter="06 // Paid Evidence"
+            title="Paid campaigns, reported snapshot by snapshot"
+            lead="Meta Ads messaging campaigns shown as two independent performance snapshots. Each period stands on its own, exactly as reported."
+          />
+          <div className="hidden sm:inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-mono text-emerald-400">
+            <Target className="h-3.5 w-3.5" />
+            <span>₹16.25 / Optimized Conversation</span>
+          </div>
+        </div>
+
         <div className="mt-8 sm:mt-10 grid gap-5 md:grid-cols-2">
           {META_ADS_EVIDENCE.map((snap, i) => (
             <Reveal key={snap.id} delay={i * 0.08}>
-              <div className="card-premium card-hover h-full p-6 sm:p-7" data-testid={`home-paid-snapshot-${i + 1}`}>
-                <p className="eyebrow">{snap.title}</p>
+              <div className="card-premium card-hover group relative h-full p-6 sm:p-7 transition-all duration-300 hover:border-electric/70 hover:shadow-[0_0_30px_rgba(37,99,235,0.2)]" data-testid={`home-paid-snapshot-${i + 1}`}>
+                {/* Top Accent Shimmer */}
+                <div
+                  className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  aria-hidden="true"
+                />
+
+                <div className="flex items-center justify-between">
+                  <p className="eyebrow">{snap.title}</p>
+                  <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/30 font-semibold">
+                    Live Meta Ads Snapshot
+                  </span>
+                </div>
+
                 <div className="mt-4 grid grid-cols-3 gap-2.5">
                   {snap.metrics.map((m) => (
-                    <div key={m.label}>
-                      <p className="font-mono text-base sm:text-lg font-semibold text-white">{m.value}</p>
-                      <p className="mt-1 text-[11px] leading-snug text-slate-500">{m.label}</p>
+                    <div key={m.label} className="rounded-xl border border-slate-800 bg-[#0d1424]/70 p-2.5">
+                      <p className="font-mono text-base sm:text-lg font-bold text-white tracking-tight">{m.value}</p>
+                      <p className="mt-1 text-[11px] leading-snug text-slate-400">{m.label}</p>
                     </div>
                   ))}
                 </div>
                 <Link
                   to="/meta-ads"
                   data-testid={`home-paid-snapshot-cta-${i + 1}`}
-                  className="group mt-5 inline-flex items-center gap-2 text-sm font-medium text-electric-bright hover:text-cyan-300 transition-colors"
+                  className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-electric-bright hover:text-cyan-300 transition-colors"
                 >
                   See the campaign evidence
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
@@ -422,13 +497,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 07: Content & Email */}
+      {/* Section 07: Content & Email with Floating Feature Badges */}
       <section className="border-y border-slate-800/70 bg-[#050a16]" data-testid="home-content-email">
         <div className="container-shell grid gap-5 py-10 sm:py-14 lg:grid-cols-2 lg:py-16">
           <Reveal>
-            <div className="card-premium card-hover h-full p-6 sm:p-8">
-              <p className="eyebrow">Content Writing</p>
-              <h3 className="mt-3 font-display text-xl sm:text-2xl font-semibold text-white">Content built to rank and to be read</h3>
+            <div className="card-premium card-hover group relative h-full p-6 sm:p-8 transition-all duration-300 hover:border-electric/70 hover:shadow-[0_0_30px_rgba(37,99,235,0.2)]">
+              <div
+                className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                aria-hidden="true"
+              />
+              <div className="flex items-center justify-between">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-electric/30 bg-electric-deep/15 text-electric-bright group-hover:scale-110 transition-transform">
+                  <PenLine className="h-5 w-5 text-emerald-400" />
+                </span>
+                <span className="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
+                  Search-Intent Architecture
+                </span>
+              </div>
+              <h3 className="mt-4 font-display text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                Content built to rank and to be read
+              </h3>
               <p className="mt-3 text-sm sm:text-base text-slate-400 leading-relaxed">
                 Search intent research, clear structure, natural keyword use and internal linking turn articles into
                 assets. Our content work feeds directly into SEO performance, because the two disciplines are planned
@@ -437,17 +525,31 @@ export default function Home() {
               <Link
                 to="/content-writing"
                 data-testid="home-content-cta"
-                className="group mt-5 inline-flex items-center gap-2 text-sm font-medium text-electric-bright hover:text-cyan-300"
+                className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-electric-bright hover:text-cyan-300"
               >
                 Explore content writing
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
               </Link>
             </div>
           </Reveal>
+
           <Reveal delay={0.1}>
-            <div className="card-premium card-hover h-full p-6 sm:p-8">
-              <p className="eyebrow">Email Marketing</p>
-              <h3 className="mt-3 font-display text-xl sm:text-2xl font-semibold text-white">Email that respects the inbox</h3>
+            <div className="card-premium card-hover group relative h-full p-6 sm:p-8 transition-all duration-300 hover:border-electric/70 hover:shadow-[0_0_30px_rgba(37,99,235,0.2)]">
+              <div
+                className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                aria-hidden="true"
+              />
+              <div className="flex items-center justify-between">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-electric/30 bg-electric-deep/15 text-electric-bright group-hover:scale-110 transition-transform">
+                  <Mail className="h-5 w-5 text-amber-400" />
+                </span>
+                <span className="text-[11px] font-mono text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/30">
+                  Retention & Nurture Engine
+                </span>
+              </div>
+              <h3 className="mt-4 font-display text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                Email that respects the inbox
+              </h3>
               <p className="mt-3 text-sm sm:text-base text-slate-400 leading-relaxed">
                 Segmentation, campaign planning and copy that earns the open. Email is where audience attention becomes
                 retention: follow-ups, offers and communication timed around what subscribers actually care about.
@@ -455,7 +557,7 @@ export default function Home() {
               <Link
                 to="/email-marketing"
                 data-testid="home-email-cta"
-                className="group mt-5 inline-flex items-center gap-2 text-sm font-medium text-electric-bright hover:text-cyan-300"
+                className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-electric-bright hover:text-cyan-300"
               >
                 Explore email marketing
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
@@ -465,13 +567,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 08: Sector Experience */}
+      {/* Section 08: Sector Experience with Vertical Count */}
       <section className="container-shell py-10 sm:py-14 lg:py-16" data-testid="home-sectors">
-        <SectionHeading
-          chapter="07 // Range"
-          title="Experience across 21+ sectors"
-          lead="Sector experience, presented honestly: no client names, no logos, just the range of markets we have planned and executed for. Tap any sector to see the typical focus."
-        />
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <SectionHeading
+            chapter="07 // Range"
+            title="Experience across 21+ sectors"
+            lead="Sector experience, presented honestly: no client names, no logos, just the range of markets we have planned and executed for. Tap any sector to see the typical focus."
+          />
+          <div className="hidden sm:inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1.5 text-xs font-mono text-cyan-400">
+            <Layers className="h-3.5 w-3.5" />
+            <span>21+ Scaled Verticals</span>
+          </div>
+        </div>
         <div className="mt-8 sm:mt-10">
           <SectorGrid />
         </div>
@@ -499,26 +607,38 @@ export default function Home() {
           </div>
           <div className="mt-8 sm:mt-10 grid gap-5 md:grid-cols-3">
             {[
-              { label: "SEO Performance", value: "119k clicks", note: "in a 3 month compare period", path: "/seo" },
-              { label: "Social Media Performance", value: "1.0M views", note: "in a single reporting period", path: "/social-media" },
-              { label: "Paid Advertising", value: "₹16.25", note: "cost per messaging conversation, Snapshot A", path: "/meta-ads" },
-            ].map((card, i) => (
-              <Reveal key={card.label} delay={i * 0.08}>
-                <Link
-                  to={card.path}
-                  data-testid={`home-results-card-${i + 1}`}
-                  className="card-premium card-hover group block h-full p-6 sm:p-7"
-                >
-                  <p className="eyebrow">{card.label}</p>
-                  <p className="mt-3 font-mono text-2xl sm:text-3xl font-bold text-white">{card.value}</p>
-                  <p className="mt-1.5 text-xs sm:text-sm text-slate-500">{card.note}</p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-electric-bright group-hover:text-cyan-300">
-                    See the evidence
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-                  </span>
-                </Link>
-              </Reveal>
-            ))}
+              { label: "SEO Performance", value: "119k clicks", note: "in a 3 month compare period", path: "/seo", icon: TrendingUp, color: "text-sky-400" },
+              { label: "Social Media Performance", value: "1.0M views", note: "in a single reporting period", path: "/social-media", icon: Sparkles, color: "text-pink-400" },
+              { label: "Paid Advertising", value: "₹16.25", note: "cost per messaging conversation, Snapshot A", path: "/meta-ads", icon: Target, color: "text-emerald-400" },
+            ].map((card, i) => {
+              const CardIcon = card.icon;
+              return (
+                <Reveal key={card.label} delay={i * 0.08}>
+                  <Link
+                    to={card.path}
+                    data-testid={`home-results-card-${i + 1}`}
+                    className="card-premium card-hover group relative block h-full p-6 sm:p-7 transition-all duration-300 hover:border-electric/70 hover:shadow-[0_0_30px_rgba(37,99,235,0.2)] overflow-hidden"
+                  >
+                    <div
+                      className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      aria-hidden="true"
+                    />
+                    <div className="flex items-center justify-between">
+                      <p className="eyebrow">{card.label}</p>
+                      <CardIcon className={`h-4 w-4 ${card.color} group-hover:scale-110 transition-transform`} />
+                    </div>
+                    <p className="mt-3 font-mono text-2xl sm:text-3xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                      {card.value}
+                    </p>
+                    <p className="mt-1.5 text-xs sm:text-sm text-slate-500">{card.note}</p>
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-electric-bright group-hover:text-cyan-300">
+                      See the evidence
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+                    </span>
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
           <div className="mt-12 sm:mt-14">
             <GrowthSystem />
